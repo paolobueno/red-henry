@@ -13,8 +13,13 @@ const redSettings = {
   functionGlobalContext: { },
   httpAdminRoot: "/red",
   httpNodeRoot: "/api",
-  nodesDir: join(__dirname, "../nodes"),
+  logging: {
+    console: {
+      level: "trace"
+    }
+  },
   userDir: join(__dirname, "../red/"),
+  nodesDir: join(__dirname, "../"),
 };
 const server = createServer(app);
 RED.init(server, redSettings);
