@@ -1,20 +1,20 @@
-import * as express from 'express';
-import { createServer } from 'http';
-import { join } from 'path';
-import { tmpdir } from 'os';
+import * as express from "express";
+import { createServer } from "http";
+import { tmpdir } from "os";
+import { join } from "path";
 
-const RED : any = require('node-red');
+// tslint:disable-next-line:no-var-requires
+const RED: any = require("node-red");
 
 const app = express();
-app.use('/', express.static(join(__dirname, "public")));
-
+app.use("/", express.static(join(__dirname, "public")));
 
 const redSettings = {
-    httpAdminRoot:"/red",
-    httpNodeRoot: "/api",
-    nodesDir: join(__dirname, "../nodes"),
-    userDir: join(__dirname, "../red/"),
-    functionGlobalContext: { }
+  functionGlobalContext: { },
+  httpAdminRoot: "/red",
+  httpNodeRoot: "/api",
+  nodesDir: join(__dirname, "../nodes"),
+  userDir: join(__dirname, "../red/"),
 };
 const server = createServer(app);
 RED.init(server, redSettings);
