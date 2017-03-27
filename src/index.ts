@@ -30,5 +30,5 @@ app.use(redSettings.httpAdminRoot, RED.httpAdmin);
 // Serve the http nodes UI from /api
 app.use(redSettings.httpNodeRoot, RED.httpNode);
 
-server.listen(process.env.PORT || 8080);
+server.listen(process.env.PORT || process.env.FH_PORT || 8080);
 RED.start();
