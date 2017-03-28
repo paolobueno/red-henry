@@ -49,7 +49,115 @@
                 ]
             }
         ],
-        "out": []
+        "out": [
+            {
+                "x": 423,
+                "y": 295,
+                "wires": [
+                    {
+                        "id": "cc812944.228518",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "2511d1bc.53b4de",
+        "type": "subflow",
+        "name": "scorekeeping",
+        "info": "",
+        "in": [
+            {
+                "x": 258.5,
+                "y": 583,
+                "wires": [
+                    {
+                        "id": "51b1282d.0a1978"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 707.5,
+                "y": 587,
+                "wires": [
+                    {
+                        "id": "bb92d1fa.41898",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "1cbe0e0d.9541b2",
+        "type": "subflow",
+        "name": "???",
+        "info": "",
+        "in": [
+            {
+                "x": 442.5,
+                "y": 356,
+                "wires": [
+                    {
+                        "id": "8519fdd2.d8266"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 947,
+                "y": 357,
+                "wires": [
+                    {
+                        "id": "546a902e.d27b9",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "fe837383.19ad4",
+        "type": "subflow",
+        "name": "process scores",
+        "info": "",
+        "in": [
+            {
+                "x": 233,
+                "y": 460,
+                "wires": [
+                    {
+                        "id": "2de0af2d.4b654"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1169.5,
+                "y": 468,
+                "wires": [
+                    {
+                        "id": "59946fa2.a799b",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 760,
+                "y": 529,
+                "wires": [
+                    {
+                        "id": "12fe7d1b.347243",
+                        "port": 1
+                    }
+                ]
+            }
+        ]
     },
     {
         "id": "a0e9d61.306aa28",
@@ -69,8 +177,9 @@
         "y": 233,
         "wires": [
             [
-                "bee86643.788788",
-                "30265a3b.1842c6"
+                "69300a20.bae3a4",
+                "5013097.43220f8",
+                "8c58028f.63218"
             ]
         ]
     },
@@ -81,8 +190,8 @@
         "bot": "a0e9d61.306aa28",
         "track": false,
         "outputs": 0,
-        "x": 1054,
-        "y": 190,
+        "x": 1300,
+        "y": 283,
         "wires": []
     },
     {
@@ -113,12 +222,11 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 563,
-        "y": 230,
+        "x": 630,
+        "y": 160,
         "wires": [
             [
-                "b72528a6.bf7278",
-                "ef93c8a3.d6ff98"
+                "2a20248b.31001c"
             ]
         ]
     },
@@ -154,28 +262,15 @@
         ]
     },
     {
-        "id": "a135c3c4.1a1b3",
-        "type": "debug",
-        "z": "372fca6f.d9f4d6",
-        "name": "",
-        "active": true,
-        "console": "true",
-        "complete": "true",
-        "x": 436,
-        "y": 227,
-        "wires": []
-    },
-    {
         "id": "39c8c455.61329c",
         "type": "subflow:f03e8c3f.e7798",
         "z": "a8f99fcc.d49a8",
         "name": "",
-        "x": 701.5,
-        "y": 319,
+        "x": 835.5,
+        "y": 280,
         "wires": [
             [
-                "ef93c8a3.d6ff98",
-                "b72528a6.bf7278"
+                "2a20248b.31001c"
             ]
         ]
     },
@@ -228,35 +323,13 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 493,
-        "y": 320,
+        "x": 573,
+        "y": 264,
         "wires": [
             [
                 "39c8c455.61329c"
             ]
         ]
-    },
-    {
-        "id": "c3775d52.d248d",
-        "type": "chatbot-waiting",
-        "z": "a8f99fcc.d49a8",
-        "waitingType": "",
-        "x": 339,
-        "y": 318,
-        "wires": [
-            [
-                "933ed4be.cf9148"
-            ]
-        ]
-    },
-    {
-        "id": "b72528a6.bf7278",
-        "type": "subflow:372fca6f.d9f4d6",
-        "z": "a8f99fcc.d49a8",
-        "name": "",
-        "x": 1049,
-        "y": 358,
-        "wires": []
     },
     {
         "id": "cc812944.228518",
@@ -269,9 +342,7 @@
         "x": 250,
         "y": 230,
         "wires": [
-            [
-                "a135c3c4.1a1b3"
-            ]
+            []
         ]
     },
     {
@@ -325,44 +396,320 @@
         "func": "msg.rand = Math.random();\nif(msg.rand > 0.33) {\n    return [msg, null]\n} else {\n    return [null, msg]\n}",
         "outputs": "2",
         "noerr": 0,
-        "x": 193.5,
-        "y": 358,
+        "x": 358.5,
+        "y": 272,
         "wires": [
             [
-                "c3775d52.d248d"
+                "933ed4be.cf9148"
             ],
             [
-                "8519fdd2.d8266"
+                "c43e0b61.049f98"
             ]
         ]
     },
     {
         "id": "546a902e.d27b9",
         "type": "chatbot-audio",
-        "z": "a8f99fcc.d49a8",
+        "z": "1cbe0e0d.9541b2",
         "name": "?",
         "filename": "src/public/astley.ogg",
         "track": false,
-        "x": 689,
-        "y": 437,
+        "x": 791,
+        "y": 351,
         "wires": [
-            [
-                "ef93c8a3.d6ff98",
-                "b72528a6.bf7278"
-            ]
+            []
         ]
     },
     {
         "id": "8519fdd2.d8266",
         "type": "chatbot-waiting",
-        "z": "a8f99fcc.d49a8",
+        "z": "1cbe0e0d.9541b2",
         "waitingType": "upload_audio",
-        "x": 454.5,
-        "y": 436,
+        "x": 582.5,
+        "y": 356,
         "wires": [
             [
                 "546a902e.d27b9"
             ]
         ]
+    },
+    {
+        "id": "51b1282d.0a1978",
+        "type": "function",
+        "z": "2511d1bc.53b4de",
+        "name": "++",
+        "func": "var reg = /\\b(\\w*)\\+\\+/g;\nvar matches = [];\nvar s = msg.payload || ''\ns.replace(reg, function(match, g1) {\n   matches.push(g1.toLowerCase()); \n});\nmsg.matches = matches\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 388.5,
+        "y": 583,
+        "wires": [
+            [
+                "bb92d1fa.41898"
+            ]
+        ]
+    },
+    {
+        "id": "bb92d1fa.41898",
+        "type": "function",
+        "z": "2511d1bc.53b4de",
+        "name": "increment",
+        "func": "var matches = msg.matches;\nmatches.forEach(function(m) {\n    var key = 'scores';\n    var scores = global.get(key) || {};\n    scores[m] = (scores[m] | 0) + 1\n    global.set(key, scores);\n});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 567.5,
+        "y": 587,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2de0af2d.4b654",
+        "type": "subflow:2511d1bc.53b4de",
+        "z": "fe837383.19ad4",
+        "name": "scorekeeping",
+        "x": 393,
+        "y": 460,
+        "wires": [
+            [
+                "12fe7d1b.347243"
+            ]
+        ]
+    },
+    {
+        "id": "69300a20.bae3a4",
+        "type": "chatbot-command",
+        "z": "a8f99fcc.d49a8",
+        "name": "",
+        "command": "/list",
+        "x": 330,
+        "y": 175,
+        "wires": [
+            [
+                "30265a3b.1842c6",
+                "bee86643.788788"
+            ]
+        ]
+    },
+    {
+        "id": "c43e0b61.049f98",
+        "type": "subflow:1cbe0e0d.9541b2",
+        "z": "a8f99fcc.d49a8",
+        "name": "",
+        "x": 645.75,
+        "y": 335.5,
+        "wires": [
+            [
+                "2a20248b.31001c"
+            ]
+        ]
+    },
+    {
+        "id": "12fe7d1b.347243",
+        "type": "switch",
+        "z": "fe837383.19ad4",
+        "name": "has matches",
+        "property": "matches",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "[]",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 593.5,
+        "y": 476,
+        "wires": [
+            [
+                "a8dde730.cef188"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "89229895.5bdcf8",
+        "type": "chatbot-message",
+        "z": "a8f99fcc.d49a8",
+        "name": "noop",
+        "message": [],
+        "answer": false,
+        "track": false,
+        "parse_mode": "Markdown",
+        "x": 1189.5,
+        "y": 468,
+        "wires": [
+            [
+                "2a20248b.31001c"
+            ]
+        ]
+    },
+    {
+        "id": "59946fa2.a799b",
+        "type": "template",
+        "z": "fe837383.19ad4",
+        "name": "format scores",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{#scores}}\n**{{score}}** now has a score of {{value}}\n{{/scores}}",
+        "x": 1009.5,
+        "y": 468,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5013097.43220f8",
+        "type": "change",
+        "z": "a8f99fcc.d49a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 408,
+        "y": 353,
+        "wires": [
+            [
+                "7c684c9d.ea2654"
+            ]
+        ]
+    },
+    {
+        "id": "2a20248b.31001c",
+        "type": "function",
+        "z": "a8f99fcc.d49a8",
+        "name": "global msg counter",
+        "func": "var count = global.get(\"msgCount\") || 0;\nglobal.set(\"msgCount\", ++count);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1093,
+        "y": 306,
+        "wires": [
+            [
+                "ef93c8a3.d6ff98"
+            ]
+        ]
+    },
+    {
+        "id": "a8dde730.cef188",
+        "type": "function",
+        "z": "fe837383.19ad4",
+        "name": "set msg.scores",
+        "func": "var scores = global.get('scores') || {};\nvar matches = msg.matches;\nvar scoresArr = matches.map(function(score){\n    value = scores[score];\n    return {score:score, value: value};\n});\n\nmsg.scores = scoresArr;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 802.5,
+        "y": 470,
+        "wires": [
+            [
+                "59946fa2.a799b"
+            ]
+        ]
+    },
+    {
+        "id": "7c684c9d.ea2654",
+        "type": "subflow:fe837383.19ad4",
+        "z": "a8f99fcc.d49a8",
+        "name": "",
+        "x": 701.25,
+        "y": 468,
+        "wires": [
+            [
+                "89229895.5bdcf8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8c58028f.63218",
+        "type": "chatbot-command",
+        "z": "a8f99fcc.d49a8",
+        "name": "",
+        "command": "/scores",
+        "x": 347,
+        "y": 505,
+        "wires": [
+            [
+                "5622d4fd.0a0c7c"
+            ]
+        ]
+    },
+    {
+        "id": "5622d4fd.0a0c7c",
+        "type": "function",
+        "z": "a8f99fcc.d49a8",
+        "name": "get all scores",
+        "func": "var scores = global.get('scores') || {};\nvar scoresArr = [];\nfor (var score in scores) {\n    value = scores[score];\n    scoresArr.push({score:score, value: value});\n}\n\nmsg.scores = scoresArr;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 577.5,
+        "y": 539,
+        "wires": [
+            [
+                "b3756db0.87c14"
+            ]
+        ]
+    },
+    {
+        "id": "b3756db0.87c14",
+        "type": "template",
+        "z": "a8f99fcc.d49a8",
+        "name": "format scores",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{#scores}}\n**{{score}}**:{{value}}\n{{/scores}}",
+        "x": 845,
+        "y": 529,
+        "wires": [
+            [
+                "89229895.5bdcf8"
+            ]
+        ]
+    },
+    {
+        "id": "37a54bc7.96a634",
+        "type": "catch",
+        "z": "1cbe0e0d.9541b2",
+        "name": "",
+        "scope": null,
+        "x": 616,
+        "y": 474,
+        "wires": [
+            [
+                "4ad53734.6b4db8"
+            ]
+        ]
+    },
+    {
+        "id": "4ad53734.6b4db8",
+        "type": "debug",
+        "z": "1cbe0e0d.9541b2",
+        "name": "",
+        "active": true,
+        "console": "true",
+        "complete": "true",
+        "x": 814.5,
+        "y": 474,
+        "wires": []
     }
 ]
