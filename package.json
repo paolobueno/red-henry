@@ -19,7 +19,7 @@
     "typescript": "^2.2.1"
   },
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/start.ts",
     "lint": "tslint src",
     "copy": "copyfiles -u 1 src/public/* lib/",
     "build": "rm -rf lib/; tsc && npm run copy"
