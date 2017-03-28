@@ -12,6 +12,8 @@ app.use("/", express.static(join(__dirname, "public")));
 
 const redSettings = {
   functionGlobalContext: { },
+  flowFile: 'flows.json',
+  flowPretty: true,
   httpAdminRoot: "/red",
   httpNodeRoot: "/api",
   logging: {
@@ -25,7 +27,7 @@ const server = createServer(app);
 RED.init(server, redSettings);
 
 // DEBUG list stuff in directories
-console.log('listing contents of userDir')
+console.log('listing contents of userDir');
 console.log(readdirSync(join(redSettings.userDir, "node_modules")));
 
 // Serve the editor UI from /red
