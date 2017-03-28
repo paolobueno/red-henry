@@ -1,4 +1,5 @@
 import * as express from "express";
+import { readdirSync } from "fs";
 import { createServer } from "http";
 import { tmpdir } from "os";
 import { join } from "path";
@@ -23,6 +24,10 @@ const redSettings = {
 };
 const server = createServer(app);
 RED.init(server, redSettings);
+
+// DEBUG list stuff in directories
+console.log('listing contents of nodesDir')
+console.log(readdirSync(join(redSettings.nodesDir, "node_modules")));
 
 // Serve the editor UI from /red
 app.use(redSettings.httpAdminRoot, RED.httpAdmin);
