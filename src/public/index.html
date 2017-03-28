@@ -13,8 +13,8 @@
             
             setCount('...');
             fetch('/api/msg')
-                .then(r => r.text())
-                .then(t => JSON.parse(t).count)
+                .then(r => r.json())
+                .then(o => o.count)
                 .then(setCount)
                 .catch(console.error)
         </script>

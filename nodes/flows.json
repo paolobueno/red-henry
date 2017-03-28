@@ -45,9 +45,6 @@
                 "wires": [
                     {
                         "id": "cc812944.228518"
-                    },
-                    {
-                        "id": "a135c3c4.1a1b3"
                     }
                 ]
             }
@@ -73,7 +70,7 @@
         "wires": [
             [
                 "bee86643.788788",
-                "933ed4be.cf9148"
+                "30265a3b.1842c6"
             ]
         ]
     },
@@ -84,8 +81,8 @@
         "bot": "a0e9d61.306aa28",
         "track": false,
         "outputs": 0,
-        "x": 836,
-        "y": 249,
+        "x": 1054,
+        "y": 190,
         "wires": []
     },
     {
@@ -116,12 +113,12 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 393,
-        "y": 242,
+        "x": 563,
+        "y": 230,
         "wires": [
             [
-                "c3775d52.d248d",
-                "b72528a6.bf7278"
+                "b72528a6.bf7278",
+                "ef93c8a3.d6ff98"
             ]
         ]
     },
@@ -173,8 +170,8 @@
         "type": "subflow:f03e8c3f.e7798",
         "z": "a8f99fcc.d49a8",
         "name": "",
-        "x": 512.5,
-        "y": 327,
+        "x": 701.5,
+        "y": 319,
         "wires": [
             [
                 "ef93c8a3.d6ff98",
@@ -208,8 +205,8 @@
         "format": "handlebars",
         "syntax": "mustache",
         "template": "List error: {{error.message}}",
-        "x": 421,
-        "y": 288,
+        "x": 449,
+        "y": 297,
         "wires": [
             [
                 "20ae1df.d43fce2"
@@ -231,8 +228,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 303,
-        "y": 300,
+        "x": 493,
+        "y": 320,
         "wires": [
             [
                 "39c8c455.61329c"
@@ -244,11 +241,11 @@
         "type": "chatbot-waiting",
         "z": "a8f99fcc.d49a8",
         "waitingType": "",
-        "x": 618,
-        "y": 240,
+        "x": 339,
+        "y": 318,
         "wires": [
             [
-                "ef93c8a3.d6ff98"
+                "933ed4be.cf9148"
             ]
         ]
     },
@@ -257,8 +254,8 @@
         "type": "subflow:372fca6f.d9f4d6",
         "z": "a8f99fcc.d49a8",
         "name": "",
-        "x": 902,
-        "y": 356,
+        "x": 1049,
+        "y": 358,
         "wires": []
     },
     {
@@ -269,8 +266,8 @@
         "func": "var count = global.get(\"msgCount\") || 0;\nglobal.set(\"msgCount\", ++count);\nreturn {payload: count};",
         "outputs": 1,
         "noerr": 0,
-        "x": 261,
-        "y": 284,
+        "x": 250,
+        "y": 230,
         "wires": [
             [
                 "a135c3c4.1a1b3"
@@ -317,6 +314,54 @@
         "wires": [
             [
                 "d4fa38b8.1ccf48"
+            ]
+        ]
+    },
+    {
+        "id": "30265a3b.1842c6",
+        "type": "function",
+        "z": "a8f99fcc.d49a8",
+        "name": "rand",
+        "func": "msg.rand = Math.random();\nif(msg.rand > 0.33) {\n    return [msg, null]\n} else {\n    return [null, msg]\n}",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 193.5,
+        "y": 358,
+        "wires": [
+            [
+                "c3775d52.d248d"
+            ],
+            [
+                "8519fdd2.d8266"
+            ]
+        ]
+    },
+    {
+        "id": "546a902e.d27b9",
+        "type": "chatbot-audio",
+        "z": "a8f99fcc.d49a8",
+        "name": "?",
+        "filename": "nodes/astley.ogg",
+        "track": false,
+        "x": 689,
+        "y": 437,
+        "wires": [
+            [
+                "ef93c8a3.d6ff98",
+                "b72528a6.bf7278"
+            ]
+        ]
+    },
+    {
+        "id": "8519fdd2.d8266",
+        "type": "chatbot-waiting",
+        "z": "a8f99fcc.d49a8",
+        "waitingType": "upload_audio",
+        "x": 454.5,
+        "y": 436,
+        "wires": [
+            [
+                "546a902e.d27b9"
             ]
         ]
     }
