@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node-red-contrib-chatbot": "^0.6.21",
+    "node-red-contrib-fh-forms": "^0.0.3"
+  }
+}

@@ -19,7 +19,7 @@ const redSettings = {
     }
   },
   userDir: join(__dirname, "../red/"),
-  nodesDir: join(__dirname, "../"),
+  nodesDir: join(__dirname, "../nodes")
 };
 const server = createServer(app);
 RED.init(server, redSettings);
