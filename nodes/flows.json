@@ -341,7 +341,7 @@
         "type": "chatbot-audio",
         "z": "a8f99fcc.d49a8",
         "name": "?",
-        "filename": "nodes/astley.ogg",
+        "filename": "src/public/astley.ogg",
         "track": false,
         "x": 689,
         "y": 437,
