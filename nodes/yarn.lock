@@ -1163,9 +1163,9 @@ node-red-contrib-chatbot@^0.6.21:
     underscore "^1.8.3"
     underscore.string "^3.3.4"
 
-node-red-contrib-fh-forms@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/node-red-contrib-fh-forms/-/node-red-contrib-fh-forms-0.1.4.tgz#7e8adb6d8448882b03cb8cc7f06fd9dd966c3890"
+node-red-contrib-fh-forms@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/node-red-contrib-fh-forms/-/node-red-contrib-fh-forms-0.1.5.tgz#c5a6f76e37d3b03a902cf11f6d1f98ce036f52c5"
   dependencies:
     fh-mbaas-api "^6.1.8"
 

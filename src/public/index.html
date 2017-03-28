@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Some page</title>
+        <title>Node-RED in RHMAP PoC</title>
     </head>
     <body>
-        <h1>Hello!</h1>
+        <h1>Node-RED in RHMAP</h1>
+        <p>To access the RED editor go <a href="/red">here</a></p>
+        <p>Total # of messages sent by bots: <span id="messages-count">0</span>
+
+        <script>
+            const setCount = (t) => document.getElementById("messages-count").textContent = t;
+            
+            setCount('...');
+            fetch('/api/msg')
+                .then(r => r.text())
+                .then(t => JSON.parse(t).count)
+                .then(setCount)
+                .catch(console.error)
+        </script>
     </body>
 </html>

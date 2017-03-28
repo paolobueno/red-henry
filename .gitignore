@@ -4,3 +4,4 @@ lib/
 .vscode/
 npm-debug.log
 red/
+*.backup

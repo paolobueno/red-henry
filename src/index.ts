@@ -12,8 +12,8 @@ app.use("/", express.static(join(__dirname, "public")));
 
 const redSettings = {
   functionGlobalContext: { },
-  flowFile: 'flows.json',
-  flowPretty: true,
+  flowFile: "flows.json",
+  flowFilePretty: true,
   httpAdminRoot: "/red",
   httpNodeRoot: "/api",
   logging: {
