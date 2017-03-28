@@ -19,15 +19,14 @@ const redSettings = {
       level: "trace"
     }
   },
-  userDir: join(__dirname, "../red/"),
-  nodesDir: join(__dirname, "../nodes")
+  userDir: join(__dirname, "../nodes/"),
 };
 const server = createServer(app);
 RED.init(server, redSettings);
 
 // DEBUG list stuff in directories
-console.log('listing contents of nodesDir')
-console.log(readdirSync(join(redSettings.nodesDir, "node_modules")));
+console.log('listing contents of userDir')
+console.log(readdirSync(join(redSettings.userDir, "node_modules")));
 
 // Serve the editor UI from /red
 app.use(redSettings.httpAdminRoot, RED.httpAdmin);
