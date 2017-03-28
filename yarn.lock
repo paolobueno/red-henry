@@ -2076,9 +2076,9 @@ node-pre-gyp@0.6.32:
     tar "~2.2.1"
     tar-pack "~3.3.0"
 
-node-red-contrib-fh-forms@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/node-red-contrib-fh-forms/-/node-red-contrib-fh-forms-0.0.1.tgz#d53c5de62486f330f59172c2bcf0526494224b45"
+node-red-contrib-fh-forms@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/node-red-contrib-fh-forms/-/node-red-contrib-fh-forms-0.0.3.tgz#52c0aac51a62b114c4c75543adce2e1e61eece72"
   dependencies:
     fh-mbaas-api "^6.1.8"
 
